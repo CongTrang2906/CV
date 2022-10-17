@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Noi Dung</h1>
+
+    <script>
+        //object construcor :hàm tạo
+
+        function User(firstName, lastName, avatar) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.avatar = avatar;
+
+            this.getName = function() {
+                return ` ${this.firstName} ${this.lastName}`;
+            }
+        }
+        // Thêm thuộc tính ngoài hàm tạo
+        User.prototype.className = 'F8'
+            //
+        var author = new User('Trang', 'Truong', 'avatar');
+        var user = new User('Trang', 'Cong', 'avatar');
+
+        console.log(author.getName());
+        console.log(user.getName());
+        console.log(user.className)
+    </script>
+</body>
+
+</html>

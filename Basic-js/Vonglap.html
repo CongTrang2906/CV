@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Noi dung</h1>
+    <script>
+        // if-else : > < !==
+        var date = prompt('Nhập date:', 0);
+        if (date === 2) {
+            alert('hôm nay là thứ 2');
+        } else if (date === 3) {
+            alert('Hôm nay là thứ 3');
+        } else if (date === 4) {
+            alert('Hôm nay là thứ 4');
+        } else if (date === 5) {
+            alert('Hôm nay là thứ 5');
+        } else {
+            alert('Ngày không biết');
+        }
+
+        // switch-case
+        var date = 2;
+        switch (date) {
+
+            case 2:
+            case 3:
+            case 4:
+                console.log('hom nay la thu 2,3,4')
+                break; //dừng lại
+            case 5:
+                console.log('hom nay la thu 5')
+                break;
+            default:
+                console.log('khong biet');
+
+
+        }
+        //for 
+        for (var i = 1; i <= 1000; i++) {
+            console.log(i);
+        }
+
+        var myArray = [
+            'java',
+            'c#',
+            'PHP',
+            'Dart'
+        ];
+        var arrayLength = myArray.length;
+
+        for (i = 0; i < arrayLength; i++) {
+            console.log(myArray[i]);
+        }
+
+        //for-in
+        //key cua arr la số 
+        var myInfo = {
+            name: 'cong trang',
+            age: 18,
+            address: 'vn'
+        };
+        for (var key in myInfo) {
+            console.log(myInfo[key]);
+        }
+
+        //for -of : lấy phần tử mảng 
+        var languages = [
+            'java',
+            'PHP',
+            'C#'
+        ];
+        for (var value of languages) {
+            console.log(value);
+        }
+        //for -of : chuỗi 
+        var languagess = 'javascript';
+
+        for (var value of languagess) {
+            console.log(value);
+        }
+
+        //while
+        var i = 0;
+        while (i < 1000) {
+            i++;
+            console.log(i);
+
+        }
+        //do-while
+        var i = 0;
+        var isSuccess = false;
+        do {
+
+            i++;
+            console.log('nap the lan 1' + i);
+            //thanh cong
+            if (false) {
+                isSuccess = true;
+            }
+            //sai lại tiếp tục lặp đến ngang 3 lần
+        } while (!isSuccess && i <= 3);
+
+        // Array map 
+        var courses = [{
+            id: 1,
+            name: 'java',
+            coin: 0
+        }, {
+            id: 2,
+            name: 'c#',
+            coin: 10
+        }, ];
+
+        function coursesHandler(course, index) {
+            return {
+                id: course.id,
+                name: `Khoa hoc : ${course.name}`,
+                coin: course.coin,
+                coinText: ` Gia : ${course.coin}`,
+                index: index,
+            };
+        }
+        var newCourses = courses.map(coursesHandler);
+        console.log(newCourses);
+
+        // math
+        console.log(Math.PI);
+        // lam tron`
+        console.log(Math.round(1.5));
+        // random : hiển thị số thập phân nên phải làm tròn 
+        // floor làm tròn dưới 
+        // 0->1
+        var random = Math.floor(Math.random() * 100);
+        if (random < 50) {
+            console.log('Cường hóa thành công !');
+        }
+
+        //max / min
+        console.log(Math.min(-100, 1, 90, 50, 40));
+
+
+        //callback
+
+        var courses = [
+            'java',
+            'C#',
+            'ruby',
+        ];
+        courses.map(function(course) {
+            console.log(course);
+        })
+
+        //for-Each
+
+        Array.prototype.forEach2 = function(callback) {
+            for (var index in this) {
+                if (this.hasOwnProperty(index)) {
+                    callback(this[index], index, this);
+                }
+                // console.log('index', index);
+            }
+        }
+        var courses = [
+            'java',
+            'C#',
+            'Ruby',
+        ];
+        // console.log(courses);
+        courses.forEach2(function(course, index, array) {
+            console.log(course, index, array);
+        });
+
+        // filter : tim khóa học lớn hơn 700 coin
+        // trả về tất cả đk thỏa mãn 
+
+        var courses = [{
+            name: 'java',
+            coin: 680
+        }, {
+            name: 'PHP',
+            coin: 650
+        }, {
+            name: 'Ruby',
+            coin: 980
+        }];
+
+        var filterCourses = courses.filter(function(course, index, array) {
+            return course.coin > 700;
+        });
+        console.log(filterCourses);
+
+
+        //some : true /false kiểm tra tối thiểu 1 element thỏa mãn đk  
+        var courses = [{
+            name: 'java',
+            coin: 680,
+            isFinish: true,
+        }, {
+            name: 'PHP',
+            coin: 650,
+            isFinish: false,
+        }, {
+            name: 'Ruby',
+            coin: 980,
+            isFinish: true,
+        }];
+
+        var result = courses.some(function(course, index, array) {
+            return course.isFinish;
+        });
+        console.log(result);
+
+        //every : true /false kiểm tra tất cả element trong mảng
+
+        var courses = [{
+            name: 'java',
+            coin: 680,
+            isFinish: true,
+        }, {
+            name: 'PHP',
+            coin: 650,
+            isFinish: false,
+        }, {
+            name: 'Ruby',
+            coin: 980,
+            isFinish: true,
+        }];
+
+        var result = courses.every(function(course, index, array) {
+            return course.isFinish; // một lần sai trả về false
+        });
+        console.log(result);
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 100px;
+    background-image: linear-gradient(0, #fe6433, #f53e2d);
+    /* line-height: 60px; */
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__navbar-list {
+    list-style: none;
+    /* thẻ li mặc định padding 40px */
+    padding-left: 0;
+}
+
+.header__navbar-item {
+    margin: 0 8px;
+    position: relative;
+}
+
+.header__navbar-item,
+.header__navbar-item-link {
+    /* khối nằm ngang */
+    display: inline-block;
+    font-size: 1.1rem;
+    color: white;
+    /* bỏ gạch chân */
+    text-decoration: none;
+}
+
+.header__navbar-item--strong {
+    font-weight: 400;
+}
+
+
+/* thanh gạch giữa  */
+
+
+/* before :trước / after :sau */
+
+.header__navbar-item--separate::after {
+    content: "";
+    display: block;
+    /* lấy thằng position ở trước làm gốc tọa độ, chỉ phụ thuộc vào thằng cha */
+    /* position : fixed dùng để khóa thanh header footer không bị di chuyển  */
+    position: absolute;
+    border-left: 1px solid #FB9086;
+    height: 12px;
+    right: -9px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.grid {
+    width: 1400px;
+    max-width: 100%;
+    margin: auto;
+}
